@@ -118,11 +118,11 @@ index_with_subtitle: true
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
   home: /
-  categories: /categories/
+  # categories: /categories/
   about: /about/
   archives: /archives/
-  tags: /tags/
-  sitemap: /sitemap.xml
+  # tags: /tags/
+  # sitemap: /sitemap.xml
 #  commonweal: /404.html
 
 
@@ -241,7 +241,7 @@ toc:
   enable: true
 
   # Automatically add list number to toc.
-  number: true
+  number: false
 
   # If true, all words will placed on next lines if header width longer then sidebar width.
   wrap: false
