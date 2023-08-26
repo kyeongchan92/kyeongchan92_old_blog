@@ -31,6 +31,7 @@ $$\begin{align*}\text{idcg(ideal dcg)} &= \sum_{i=1}^{k} \frac{2^{r_i}-1}{\log_2
 4, 5 아이템이 1, 2등인 상황에서 구한 값이다.
 
 이제 dcg를 구해보자. dcg는 $K=5$까지 계산한 값이다:
+
 $$\begin{align*}\text{dcg} &= \sum_{i=1}^{k} \frac{2^{r_i}-1}{\log_2(i+1)}\\
 &=\frac{0}{\log_2{(1+1)}}+\frac{1}{\log_2{(2+1)}}+\frac{0}{\log_2{(3+1)}}+\frac{1}{\log_2{(4+1)}}+\frac{0}{\log_2{(5+1)}}\\
 &=1.0616
