@@ -736,3 +736,11 @@ images: assets/images
 
 # Theme version
 version: 5.1.1
+
+# Analytics
+analytics:
+  provider               : "google-gtag"
+                          # false (default), "google", "google-universal", "google-gtag", "custom"
+  google:
+    tracking_id          : "G-N6G6FCFPP8"
+    anonymize_ip         : # true, false (default)
