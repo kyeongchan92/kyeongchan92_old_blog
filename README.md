@@ -1,3 +1,4 @@
+jekyll --version
 # local serving
 
 ```
