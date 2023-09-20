@@ -1,5 +1,5 @@
 ---
-title: [논문 리뷰] SASRrec
+title: 논문리뷰 - SASRrec
 description:
 categories:
 tags:
