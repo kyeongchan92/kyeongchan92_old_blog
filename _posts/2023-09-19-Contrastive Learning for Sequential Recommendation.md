@@ -20,14 +20,17 @@ self-supervised learning은 라벨없는 데이터에서 representation을 학�
 
 1\. Data Augmentation Module
 
+
 $\mathcal{A}$를 augmentation method들의 집합이라고 하자. 즉 $\mathcal{A}$에는 뒤에 나올 crop, mask, reorder가 포함된다. 
 Data augmentation module은 각 데이터마다 2개의 augmentation을 만든다. 만약 두 augmentatoin이 같은 샘플로부터 나온 것이라면 이 둘은 positive pair라고 정의한다. 각각 다른 샘플로부터 변형된 것이라면 negative pair라고 정의한다. Augmentation 방법은 $\mathcal{A}$로부터 무작위로 2개를 뽑아 $a_i$와 $a_j$라고 부르기로 하고, 이를 $s_u$에 적용하며 결과는 각각 $s_u^{a_i}$와 $s_u^{a_j}$라고 나타낸다. 
 
 2\. User Representation Encoder
 
+
 인코더로 트랜스포머를 사용한다. augmented sequences로부터 유저 representation을 추출한다.
 
 3\. Contrastive Loss Function
+
 
 손실함수는 두 representation이 같은 유저 시퀀스로부터 추출된 것인지 구별한다.
 최소화 : 하나의 시퀀스로부터 변형된 두 개의 시퀀스간 차이
@@ -41,13 +44,16 @@ $sim(u, v)=u^Tv$, 즉 내적이다. 손실을 작게 한다 = -를 뗀 log를 �
 
 1\. Crop
 
+
 시퀀스 내부의 연속된 일부만 떼어낸다. 예를 들어 $[v_1, v_2, v_3, v_4, v_5, v_6, v_7]$이라는 7개의 아이템으로 구성된 시퀀스가 있고, 전체 길이 7의 0.6만큼만 crop한다고 하고(내림하여 4개), 2번 아이템부터 crop한다고 했을때 augmentation 결과는 $[v_2, v_3, v_4, v_5]$가 된다.
 
 2\. Mask
 
+
 일부 아이템을 [mask]라는 스페셜 아이템으로 변환한다. 만약 시퀀스 길이의 0.3만큼만 마스킹하고싶다면 7 X 0.3 = 2.1을 내림한 2개를 랜덤으로 마스킹한다.
 
 3\. Reorder
+
 
 시퀀스 내부의 연속된 시퀀스를 무작위 재배치한다. 예를들어 3번 아이템부터 0.6만큼의 아이템, 즉 4개를 재배치한다면 $[v_1, v_2, v_5, v_3, v_6, v_4, v_7]$처럼 된다.
 
