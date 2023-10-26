@@ -4,6 +4,7 @@ description:
 categories:
 tags:
 ---
+
 본 논문의 목적은 Contrastive learning을 유저의 아이템 시퀀스에 적용함으로써 향상된 user representation을 얻는 것이다.
 
 논문 : [Contrastive Learning for Sequential Recommendation](https://arxiv.org/pdf/2010.14395.pdf)
@@ -36,7 +37,7 @@ Data augmentation module은 각 데이터마다 2개의 augmentation을 만든�
 최소화 : 하나의 시퀀스로부터 변형된 두 개의 시퀀스간 차이
 최대화 : 다른 유저로부터 변형된 시퀀스간 차이
 
-$$\mathcal{L}_{\text{cl}}(s_u^{a_i}, s_u^{a_j})=-\log \frac{\exp(\text{sim}(s_u^{a_i}, s_u^{a_j}))}{\exp(\text{sim}(s_u^{a_i}, s_u^{a_j}))+\sum_{s^- \in S^-}\exp(\text{sim}(s_u^{a_i}, s_u^-))}$$
+$$\mathcal{L}\_{\text{cl}}(s\_u^{a_i}, s\_u^{a\_j})=-\log \frac{\exp(\text{sim}(s\_u^{a\_i}, s_u^{a_j}))}{\exp(\text{sim}(s_u^{a\_i}, s_u^{a\_j}))+\sum_{s^- \in S^-}\exp(\text{sim}(s\_u^{a\_i}, s\_u^-))}$$
 
 $sim(u, v)=u^Tv$, 즉 내적이다. 손실을 작게 한다 = -를 뗀 log를 크게 한다 = $s_u^{a_i}$와 $s_u^{a_i}$를 유사하게 한다 + $S^-$에 속한 것과는 멀게 한다가 되겠다.
 
@@ -64,7 +65,7 @@ $sim(u, v)=u^Tv$, 즉 내적이다. 손실을 작게 한다 = -를 뗀 log를 �
 multi-task 전략을 사용한다고 하는데, 다른게 아니라 $\mathcal{L}\_{\text{cl}}$뿐만 아니라 SASRec 자체의 next item prediction 손실까지 더하겠다는 뜻이다. 이를 $\mathcal{L}\_{\text{main}}$이라고 할 때, total loss는 다음과 같다.
 $$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{main}} + \lambda \mathcal{L}_{\text{cl}}$$
 
-&\mathcal{L}_{\text{main}}&은 다음과 같이 정의된다.
+$\mathcal{L}_{\text{main}}$은 다음과 같이 정의된다.
 
 $$\mathcal{L}_{\text{main}}(s_{u, t}) = \frac{\exp(s_{u,t}^T v_{t+1}^+)}{\exp(s_{u, t}^T v_{t+1}^+) + \sum_{v_{t+1}^- \in \mathcal{V}^-} \exp(s_{u,t}^T v_{t+1}^-)}$$
 
