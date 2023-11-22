@@ -45,7 +45,6 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 
 application = get_wsgi_application()
-
 ```
 
 여기서의 application이 바로 장고의 어플리케이션이며, 이 파일은 장고 프로젝트 생성시 자동으로 만들어져 있을 것이다. 따로 수정할 필요가 없다.
@@ -110,4 +109,5 @@ Gunicorn에서 worker와 thread의 설정은 다음과 같습니다:
 출처
 ---
 [점프 투 장고 - 4-09 WSGI](https://wikidocs.net/75556)
-[gunicorn은 대체 뭐하는 놈일까 (부제: CGI, WSGI는 대체 뭐냐](https://this-programmer.tistory.com/345)
+
+[gunicorn은 대체 뭐하는 놈일까 (부제: CGI, WSGI는 대체 뭐냐)](https://this-programmer.tistory.com/345)
