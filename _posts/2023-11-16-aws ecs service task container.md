@@ -13,7 +13,7 @@ ECS를 사용하기 위해서는 도커 먼저 이해해야한다. 도커는 cli
 
 # Cluster
 
-![0](../assets/images/ecs example.png)
+![0](/assets/images/ecs example.png)
 
 cluster는 ECS 컨테이너 인스턴스의 그룹이다. ECS는 이러한 인스턴스에 대한 일정, 유지 및 확장 요청 처리 로직을 다룬다. 또한 CPU 및 메모리 요구 사항을 기반으로 각 태스크의 최적 위치를 찾아준다.
 
