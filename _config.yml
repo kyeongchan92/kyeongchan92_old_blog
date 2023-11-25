@@ -228,8 +228,8 @@ social_icons:
   # Icon Mappings.
   # KeyMapsToSocialItemKey: NameOfTheIconFromFontAwesome
   GitHub: github
-  Twitter: twitter
-  Weibo: weibo
+#  Twitter: twitter
+#  Weibo: weibo
 
 
 # Sidebar Avatar
@@ -242,7 +242,7 @@ toc:
   enable: true
 
   # Automatically add list number to toc.
-  number: false
+  number: true
 
   # If true, all words will placed on next lines if header width longer then sidebar width.
   wrap: false
@@ -258,7 +258,7 @@ toc:
 sidebar:
   # Sidebar Position, available value: left | right
   # position: left
-  position: right
+  position: left
 
   # Sidebar Display, available value:
   #  - post    expand on posts automatically. Default.
@@ -266,9 +266,9 @@ sidebar:
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  Totally remove sidebar including sidebar toggle.
   display: post
-  #display: always
-  #display: hide
-  #display: remove
+#  display: always
+#  display: hide
+#  display: remove
 
   # Sidebar offset from top menubar in pixels.
   offset: 12
