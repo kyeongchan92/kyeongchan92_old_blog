@@ -350,11 +350,69 @@ box.addEventListener("mouseleave", ()=>{
 
 이벤트 mouseenter와 mouseleave를 사용했다. div 태그의 background-color 속성이 hotpink로 바뀌는 것을 볼 수 있다.
 
+### 반복되는 요소에 이벤트 한꺼번에 연결하기
+
+```html
+<body>
+    <ul class="list">
+        <li><a href=""#>item1</a></li>
+        <li><a href=""#>item2</a></li>
+        <li><a href=""#>item3</a></li>
+        <li><a href=""#>item4</a></li>
+    </ul>
+</body>
+```
+```javascript
+const list = document.querySelectorAll(".list li");
+
+for (let el of list){
+    el.addEventListener("click", e=>{
+    e.preventDefault();
+    console.log(e.currentTarget.innerText);
+})
+}
+```
+
+querySelectorAll로 <li> 태그를 리스트로 묶어 list라는 변수에 담자. for of 문을 사용하여 변수 el에 저장되고 있는 반복 요소를 클릭할 때마다 해당요소를 e.currentTarget으로 선택하고 .innerText 구문을 연결해준다.
+innerText 구문은 선택한 요소의 텍스트를 불러온다. 이제 각 item을 클릭하면 console에 각각 item1, item2, item3, item4가 출력된다.
+
+![0](/assets/images/javascript%20basic/clilck_for_of.png)
 
 
+### 클릭 이벤트가 발생할 때 숫자를 증가, 감소시키기
 
+```html
+<body>
+    <a href="#" class="btnPlus">plus</a>
+    <a href="#" class="btnMinus">minus</a>
+</body>
+```
+```javascript
+const btnPlus = document.querySelector(".btnPlus");
+const btnMinus = document.querySelector(".btnMinus");
+let num = 0; // 제어할 숫잣값을 0으로 초기화
 
+//btnPlust를 클릭할 때마다
+btnPlus.addEventListener("click", e=>{
+    e.preventDefault();
+    //num값을 1씩 증가
+    num++;
+    console.log(num);
+})
 
+//btnMinus를 클릭할 때마다
+btnMinus.addEventListener("click", e=>{
+    e.preventDefault();
+    //num값을 1씩 감소
+    num--;
+    console.log(num);
+})
+```
+
+플러스, 마이너스 버튼을 각각 btnPlus와 btnMinus에 담아두자. 변수 num을 0으로 초기화했다.
+btnPlus에 클릭 이벤트가 생기면 num++ 해준다. 마찬가지로 btnMinus에는 num--를 해준다.ㅏ
+
+![0](/assets/images/javascript%20basic/plus_minus.png)
 
 
 
