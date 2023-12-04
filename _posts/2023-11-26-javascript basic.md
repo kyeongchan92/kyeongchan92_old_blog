@@ -417,15 +417,74 @@ btnMinus.addEventListener("click", e=>{
 ```
 
 플러스, 마이너스 버튼을 각각 btnPlus와 btnMinus에 담아두자. 변수 num을 0으로 초기화했다.
-btnPlus에 클릭 이벤트가 생기면 num++ 해준다. 마찬가지로 btnMinus에는 num--를 해준다.ㅏ
+btnPlus에 클릭 이벤트가 생기면 num++ 해준다. 마찬가지로 btnMinus에는 num--를 해준다.
 
 ![0](/assets/images/javascript%20basic/plus_minus.png)
 
 
+### 문자 안에 변수 삽입하기
 
 
+```javascript
+const myName = "홍길동";
+console.log(`내 이름은 ${myName}입니다.`);
+```
 
+> 콘솔문에서 백틱(`)으로 감싸줘야한다.
 
+그리고 문자 안에서 ${변수}로 사용해주면 변수값을 사용할 수 있다.
+
+### 클릭하면 좌우로 회정하는 박스 만들기
+
+```html
+<body>
+    <a href="#" class="btnLeft">왼쪽으로 회전</a>
+    <a href="#" class="btnRight">오른쪽으로 회전</a>
+    <div id="box"></div>
+</body>
+```
+```css
+#box {
+    width: 300px;
+    height: 300px;
+    margin: 50px;
+    background: aqua;
+    transition: 0.5s;
+}
+```
+
+가로세로 300px의 박스를 만들었습니다. transition 시간은 0.5초로 설정했습니다.
+
+```javascript
+const btnLeft = document.querySelector(".btnLeft");
+const btnRight = document.querySelector(".btnRight");
+const box = document.querySelector("#box");
+const deg = 45;
+let num = 0;
+
+btnLeft.addEventListener("click", e=>{
+    e.preventDefault();
+    num--;
+    box.style.transform=`rotate(${num*deg}deg)`;
+});
+
+btnRight.addEventListener("click", e=>{
+    e.preventDefault();
+    num++;
+    box.style.transform=`rotate(${num*deg}deg)`;
+});
+```
+
+btnLeft를 클릭할때마다 num은 0에서 1, 2, ... 처럼 1씩 증가한다. 반대로 btnRight를 클릭할때마다 1씩 감소한다.
+btnLeft를 클릭할때마다 각도는 0, 45, 90, 135, ... 처럼 45도씩 증가한다. 반대로 btnRight를 클릭할때마다 0, -45, -90, -135, ...처럼 45도씩 감소한다.
+
+주의할 점은 rotate(${num * deg})를 백틱(`)으로 감싸야한다는 것이다.
+
+![0](/assets/images/javascript%20basic/rotate_0.png)
+
+![0](/assets/images/javascript%20basic/rotate_45.png)
+
+클릭할때마다 45도만큼 회전한다.
 
 
 
