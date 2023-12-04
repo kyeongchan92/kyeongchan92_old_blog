@@ -267,15 +267,16 @@ box.style.transform = "rotate(10deg)"
 ![0](/assets/images/javascript%20basic/css_control_box.png)
 
 
-<article> 태그를 box 변수로 잡고, .style을 붙여 속성명을 입력하면 된다. background-color같ㅣ 하이픈으로 연결된 속성은 camel case로 변경해야한다. js에 예약어가 존재하기 때문이다.
+article 태그를 box 변수로 잡고, .style을 붙여 속성명을 입력하면 된다. background-color 처럼 하이픈으로 연결된 속성은 camel case로 변경해야한다. js에 예약어가 존재하기 때문이다.
 
 
-!! document.querySelector로 선택한 요소는 DOM 객체이다. DOM에는 HTML + 스타일 정보(style속성)도 있어서 style 속성값을 변경할 수 있다.
+> document.querySelector로 선택한 요소는 DOM 객체이다. DOM에는 HTML + 스타일 정보(style속성)도 있어서 style 속성값을 변경할 수 있다.
 
 
 ## 이벤트 연결하기
 
 마우스 동작과 관련된 이벤트를 HTML과 연결하고 제어해보자.
+
 
 ### 클릭 이벤트 연결하기
 
@@ -284,12 +285,14 @@ box.style.transform = "rotate(10deg)"
     <a href="https://www.naver.com"></a>
 </body>
 ```
+
 ```css
 a {
     font-size: 100px;
     color: #555;
 }
 ```
+
 ```javascript
 const link = document.querySelector("a")
 
@@ -324,6 +327,7 @@ preventDefault는 이벤트의 기본 기능을 수행하지 말라는 것이다
     <div id="box"></div>
 </body>
 ```
+
 ```css
 #box {
     width: 200px;
@@ -332,6 +336,7 @@ preventDefault는 이벤트의 기본 기능을 수행하지 말라는 것이다
     margin: 100px auto;
 }
 ```
+
 ```javascript
 const box = document.querySelector("#box");
 
@@ -362,6 +367,7 @@ box.addEventListener("mouseleave", ()=>{
     </ul>
 </body>
 ```
+
 ```javascript
 const list = document.querySelectorAll(".list li");
 
@@ -376,7 +382,7 @@ for (let el of list){
 querySelectorAll로 <li> 태그를 리스트로 묶어 list라는 변수에 담자. for of 문을 사용하여 변수 el에 저장되고 있는 반복 요소를 클릭할 때마다 해당요소를 e.currentTarget으로 선택하고 .innerText 구문을 연결해준다.
 innerText 구문은 선택한 요소의 텍스트를 불러온다. 이제 각 item을 클릭하면 console에 각각 item1, item2, item3, item4가 출력된다.
 
-![0](/assets/images/javascript%20basic/clilck_for_of.png)
+![0](/assets/images/javascript%20basic/click_for_of.png)
 
 
 ### 클릭 이벤트가 발생할 때 숫자를 증가, 감소시키기
@@ -387,6 +393,7 @@ innerText 구문은 선택한 요소의 텍스트를 불러온다. 이제 각 it
     <a href="#" class="btnMinus">minus</a>
 </body>
 ```
+
 ```javascript
 const btnPlus = document.querySelector(".btnPlus");
 const btnMinus = document.querySelector(".btnMinus");
