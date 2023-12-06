@@ -487,21 +487,64 @@ btnLeft를 클릭할때마다 각도는 0, 45, 90, 135, ... 처럼 45도씩 증�
 클릭할때마다 45도만큼 회전한다.
 
 
+## 자바스크립트로 클래스 제어하기
 
 
+자바스크립트로 HTML 스타일을 변경하는건 추천되지 않는다. CSS 파일이 우선순위에서 무시되기 때문이다. 그러니 CSS에서 스타일을 설정해주고, 자바스크립트는 클래스 이름만 추가/제거하도록 해보자.
+
+```html
+<body>
+    <section id="wrap">
+        <article></article>
+    </section>
+</body>
+```
+```css
+#wrap {
+    width: 500px;
+    height: 500px;
+    border: 1px solid #000;
+    padding: 100px;
+    box-sizing: border-box;
+    margin: 100px auto;
+}
+#wrap article {
+    width: 100%;
+    height: 100%;
+    background: aqua;
+    transition: 1s;
+}
+```
+![0](/assets/images/javascript%20basic/control_class_body.png)
+
+일단 body부터 살펴보자. 왠지모르게 가장 위부터가 아니지만, 이는 section에게 margin(바깥여백)을 준만큼 띄워졌기 때문이다. section 태그를 살펴보자.
+
+![0](/assets/images/javascript%20basic/control_class_section.png)
+
+가로세로 500px의 검정(#000)테두리 박스이다. 근데 margin을 상하 100px을 줬기 때문에 body 영역을 상하로 넘어섰고, 좌우는 auto를 줬기 때문에 중앙에 배치되었다.
+또한 padding을 100px 줬기 때문에 내부는 300px 300px이 됐을 것이다.
+또한 ```box-sizing: border-box``` 옵션을 줬으므로 500 x 500을 해치지 않고(?), 변형없이(?) 500 X 500의 검정 박스가 생겼다. 이제 article을 보면..
+
+![0](/assets/images/javascript%20basic/control_class_article.png)
+
+가로세로 부모의 100%를 쓴다고 해도 300px X 300px 이 되었다.
+
+```javascript
+const wrap = document.querySelector("#wrap");
+const box = wrap.querySelector("article");
+
+wrap.addEventListener("click", ()=>{
+    box.style.backgroundColor = "hotpink";
+});
+```
+wrap을 변수에 저장하고, 다시 wrap을 이용해 querySelector를 사용해 article 자식을 선택한다.
+wrap을 클릭하면 article의 background-color를 hotpink로 바꾼다.
 
 
+![0](/assets/images/javascript%20basic/control_class_hotpink.png)
 
 
-
-
-
-
-
-
-
-
-
+클릭하면 색깔이 1초동안 hotpink로 바뀐다. article 태그의 style 속성에 "background-color:hotpink"가 추가되었다.
 
 
 
