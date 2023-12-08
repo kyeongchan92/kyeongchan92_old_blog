@@ -5,6 +5,8 @@ categories:
 tags:
 ---
 
+별점도 반영하고 클릭 로그도 수집하려면 javascript를 알아야한다..! 감사하게도 [Do it! 인터랙티브 웹 페이지 만들기](https://m.yes24.com/Goods/Detail/103401495) 책에 javascript 기본 내용이 있어서 읽고 정리하게 되었다. 아직 장고와 css, html, js 사이의 데이터 이동을 시키기엔 어렵다.. 하여 또 다른 javascript 책을 파야하지 않을까 싶다!
+
 ```html
 <!DOCTYPE html>
 <html lang="ko">

@@ -1,5 +1,5 @@
 ---
-title: docker 내 gunicorn 사용시 memory usage 확인
+title: Docker 내 gunicorn 사용시 memory usage 확인
 description:
 categories:
 tags:

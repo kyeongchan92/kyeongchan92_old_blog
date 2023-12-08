@@ -5,8 +5,11 @@ categories:
 tags:
 ---
 
-다음을 번역함
+huggingface에서 tokenizer를 ```.from_pretrained``` 메서드로 가져다 쓰는데, 갑자기 padding과 truncation, max_length 인자에 대해 헷갈렸다. 그래서 한 번 정리해보고자 한다.
+
+이 글은 다음을 번역하였습니다 : 
 [Huggingface](https://huggingface.co/) > [Docs](https://huggingface.co/docs) > [Transformers](https://huggingface.co/docs/transformers/index) > [Padding and truncation](https://huggingface.co/docs/transformers/pad_truncation)
+
 ---
 
 배치 인풋의 길이는 모두 다르기 때문에, 고정된 길이로 변환시킬 수 없는 노릇이다. Padding과 truncation 전략으로 이 문제를 해결한다.
