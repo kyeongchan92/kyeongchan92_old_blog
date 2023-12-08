@@ -1,7 +1,7 @@
 //
 // Variables
 // =================================================
-
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
 
 
 // Colors
@@ -62,9 +62,9 @@ $selection-color              : white;
 }
 
 // Font families.
-$font-family-chinese      : "PingFang SC", "Microsoft YaHei";
+$font-family-chinese      : "Gowun Batang";
 
-$font-family-base         : $font-family-chinese, sans-serif;
+$font-family-base         : "Gowun Batang", sans-serif;
 $font-family-base         : if(get_font_family('global'), (get_font_family('global'), $font-family-chinese, sans-serif), $font-family-base);
 
 $font-family-logo         : $font-family-base;
@@ -91,7 +91,7 @@ $font-weight-bolder       : 700;
 
 
 // Font size
-$font-size-base           : 14px;
+$font-size-base           : 20px;
 $font-size-small          : $font-size-base - 2px;
 $font-size-smaller        : $font-size-base - 4px;
 $font-size-large          : $font-size-base + 2px;
@@ -142,7 +142,7 @@ $table-row-hover-bg-color       : $whitesmoke;
 // Code & Code Blocks
 // --------------------------------------------------
 $code-font-family               : $font-family-monospace;
-$code-font-size                 : 13px;
+$code-font-size                 : 15px;
 $code-font-size                 : if(type-of(jekyll-config('font.codes.size')) == 'number', jekyll-config('font.codes.size') + px, $code-font-size);
 $code-border-radius             : 3px;
 $code-foreground                : $black-light;
