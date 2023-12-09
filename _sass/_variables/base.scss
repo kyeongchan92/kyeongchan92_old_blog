@@ -10,7 +10,7 @@
 
 $whitesmoke   : #f5f5f5;
 $gainsboro    : #eee;
-$gray-lighter : #ddd;
+$gray-lighter : #000000;
 $grey-light   : #ccc;
 $grey         : #bbb;
 $grey-dark    : #999;
@@ -99,8 +99,8 @@ $font-size-larger         : $font-size-base + 4px;
 
 
 // Headings font size
-$font-size-headings-step    : 2px;
-$font-size-headings-base    : 18px;
+$font-size-headings-step    : 4px;
+$font-size-headings-base    : 30px;
 $font-size-headings-small   : $font-size-headings-base - $font-size-headings-step;
 $font-size-headings-smaller : $font-size-headings-small - $font-size-headings-step;
 $font-size-headings-large   : $font-size-headings-base + $font-size-headings-step;
@@ -192,7 +192,7 @@ $pagination-active-border       : $grey-light;
 $main-desktop                   : 960px;
 $main-desktop-large             : 1200px;
 
-$content-desktop                : 700px;
+$content-desktop                : 600px;
 $content-desktop-large          : 900px;
 $content-desktop-padding        : 40px;
 
@@ -323,8 +323,8 @@ $full-image-margin-vertical   : 25px;
 
 //  .post-expand .post-eof
 //  In Muse scheme, margin above and below the post separator
-$post-eof-margin-top          : 80px;  //  or 160px for more white space
-$post-eof-margin-bottom       : 60px;  //  or 120px for less white space
+$post-eof-margin-top          : 50px;  //  or 160px for more white space
+$post-eof-margin-bottom       : 50px;  //  or 120px for less white space
 
 
 // Iconography

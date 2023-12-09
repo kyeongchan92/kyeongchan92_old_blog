@@ -4,7 +4,7 @@
 # ---------------------------------------------------------------
 
 # Site
-title: Kyeongchan's AI Note
+title: Leegang's AI Note
 description:
 subtitle: Recommendation system, NLP, Machine Learning, MLOps
 author: Kyeongchan Lee 이경찬
@@ -22,7 +22,7 @@ permalink: pretty
 paginate: 10
 paginate_path: "/page:num/"
 archive:
-  paginate: 10
+  paginate: 25
   paginate_path: "/page:num/"
 category:
   paginate: 10
@@ -118,7 +118,7 @@ index_with_subtitle: true
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
   archives: /archives/
-  home: /
+  home: /index/
   # categories: /categories/
   about: /about/
 

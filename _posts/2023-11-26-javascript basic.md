@@ -5,7 +5,8 @@ categories:
 tags:
 ---
 
-별점도 반영하고 클릭 로그도 수집하려면 javascript를 알아야한다..! 감사하게도 [Do it! 인터랙티브 웹 페이지 만들기](https://m.yes24.com/Goods/Detail/103401495) 책에 javascript 기본 내용이 있어서 읽고 정리하게 되었다. 아직 장고와 css, html, js 사이의 데이터 이동을 시키기엔 어렵다.. 하여 또 다른 javascript 책을 파야하지 않을까 싶다!
+별점도 반영하고 클릭 로그도 수집하려면 javascript를 알아야한다..! 감사하게도 [Do it! 인터랙티브 웹 페이지 만들기](https://m.yes24.com/Goods/Detail/103401495) 책에
+javascript 기본 내용이 있어서 읽고 정리하게 되었다. 아직 장고와 css, html, js 사이의 데이터 이동을 시키기엔 어렵다.. 하여 또 다른 javascript 책을 파야하지 않을까 싶다!
 
 ```html
 <!DOCTYPE html>
@@ -80,7 +81,6 @@ HTML요소를 제어할 수 없으므로 문제가 생길 것이다.
 이제부터는 <head>태그 안에 ```<script defer src="custom.js"></script>``` 처럼 외부에서 js파일을 호출하여 사용하도록 하자.
 defer는 body를 해석하면서 동시에 외부 js파일을 가져오도록 한다. 그 다음 body 영역이 모두 출력된 후 외부 스크립트 파일을 실행한다.
 
-
 ## js로 HTML 요소 선택하기
 
 ### document.querySelector()
@@ -88,6 +88,7 @@ defer는 body를 해석하면서 동시에 외부 js파일을 가져오도록 �
 요소를 선택할 때 사용한다.
 
 ```html
+
 <section id="wrap">
     <article class="box1">box1</article>
     <article class="box1">box2</article>
@@ -105,10 +106,10 @@ body에서 id가 wrap인 요소를 찾으라는 의미다.
 const frame = document.querySelector("#wrap");
 console.log(frame);
 ```
+
 frame이라는 변수에 #wrap 요소가 저장된다.
 
 ![0](/assets/images/javascript%20basic/selector_wrap.png)
-
 
 #wrap 요소가 제대로 출력되었다.
 
@@ -120,7 +121,6 @@ console.log(box1);
 ```
 
 ![0](/assets/images/javascript%20basic/selector_box1.png)
-
 
 article 속의 .box1이 잘 출력되었다.
 
@@ -144,10 +144,9 @@ console.log(items);
 
 변수엔 NodeList가 담겼다. for of 문을 사용해서 하나씩 꺼내보자.
 
-
 ```javascript
 const items = document.querySelectorAll("#wrap article");
-for(let item of items) {
+for (let item of items) {
     console.log(item);
 }
 ```
@@ -160,24 +159,25 @@ for(let item of items) {
 
 ```javascript
 const items = document.querySelectorAll("#wrap article");
-for(let i=0; i<items.length; i++) {
+for (let i = 0; i < items.length; i++) {
     console.log(items[i]);
 }
 ```
 
-
 ### 부모, 자식, 형제 요소 선택
 
 ```html
+
 <body>
-    <ul class="list">
-        <li class="item1">box1</li>
-        <li class="item2">box2</li>
-        <li class="item3">box3</li>
-        <li class="item4">box4</li>
-    </ul>
+<ul class="list">
+    <li class="item1">box1</li>
+    <li class="item2">box2</li>
+    <li class="item3">box3</li>
+    <li class="item4">box4</li>
+</ul>
 </body>
 ```
+
 ```javascript
 const list = document.querySelector(".list");
 const items = list.children;
@@ -193,7 +193,6 @@ console.log(items[3]);
 
 .list를 선택하면 <ul>태그를 선택한 것이다. 콘솔을 보면 자식 4개가 묶여서 출력되었다. 그리고 .children으로 자식요소를 선택해 출력하면 각각의 <li>가 선택된 것을 알 수 있다.
 
-
 ### 부모 요소 선택하기
 
 ```javascript
@@ -203,20 +202,20 @@ console.log(item2.parentElement);
 
 .parentElement를 사용하면 부모인 ul이 출력된다.
 
-
 ### 제일 가까운 상위 부모 요소 선택
 
 ```html
+
 <body>
-    <main>
-        <section>
-            <article>
-                <ul>
-                    <li>list</li>
-                </ul>
-            </article>
-        </section>
-    </main>
+<main>
+    <section>
+        <article>
+            <ul>
+                <li>list</li>
+            </ul>
+        </article>
+    </section>
+</main>
 </body>
 ```
 
@@ -233,12 +232,12 @@ console.log(li.closest("main"));
 
 다음 형제 : item3.nextElementSibling
 
-
 ## 자바스크립트로 스타일 제어
 
 ```html
+
 <body>
-    <article id="box"></article>
+<article id="box"></article>
 </body>
 ```
 
@@ -268,23 +267,22 @@ box.style.transform = "rotate(10deg)"
 
 ![0](/assets/images/javascript%20basic/css_control_box.png)
 
-
-article 태그를 box 변수로 잡고, .style을 붙여 속성명을 입력하면 된다. background-color 처럼 하이픈으로 연결된 속성은 camel case로 변경해야한다. js에 예약어가 존재하기 때문이다.
+article 태그를 box 변수로 잡고, .style을 붙여 속성명을 입력하면 된다. background-color 처럼 하이픈으로 연결된 속성은 camel case로 변경해야한다. js에 예약어가 존재하기
+때문이다.
 
 
 > document.querySelector로 선택한 요소는 DOM 객체이다. DOM에는 HTML + 스타일 정보(style속성)도 있어서 style 속성값을 변경할 수 있다.
-
 
 ## 이벤트 연결하기
 
 마우스 동작과 관련된 이벤트를 HTML과 연결하고 제어해보자.
 
-
 ### 클릭 이벤트 연결하기
 
 ```html
+
 <body>
-    <a href="https://www.naver.com"></a>
+<a href="https://www.naver.com"></a>
 </body>
 ```
 
@@ -298,7 +296,7 @@ a {
 ```javascript
 const link = document.querySelector("a")
 
-link.addEventListener("click", ()=>{
+link.addEventListener("click", () => {
     console.log("링크를 클릭했습니다.");
 })
 ```
@@ -306,11 +304,10 @@ link.addEventListener("click", ()=>{
 변수 link에 <a>태그를 선택했다. .addEventListner()문은 (이벤트명, 전달될값=>실행할구문) 처럼 인자를 전달해 쓴다. 여기서는 첫 번째 인자(이벤트명) "click"을 사용했다.
 두 번째 인자는 리스너인데, =>같은 화살표를 쓰며 이벤트가 발생할 때 응답해서 실행할 동작을 의미한다. 근데 위처럼 작성하면 클릭하자마자 네이버로 넘어가므로 링크이동을 막고 콘솔창에 출력해보도록 하자.
 
-
 ```javascript
 const link = document.querySelector("a")
 
-link.addEventListener("click", (e)=>{
+link.addEventListener("click", (e) => {
     e.preventDefault();
     console.log("링크를 클릭했습니다.");
 })
@@ -318,15 +315,16 @@ link.addEventListener("click", (e)=>{
 
 ![0](/assets/images/javascript%20basic/click.png)
 
-preventDefault는 이벤트의 기본 기능을 수행하지 말라는 것이다. 
+preventDefault는 이벤트의 기본 기능을 수행하지 말라는 것이다.
 
 여기서 e는 이벤트 객체이다.
 
 ### 호버 이벤트 연결하기
 
 ```html
+
 <body>
-    <div id="box"></div>
+<div id="box"></div>
 </body>
 ```
 
@@ -342,11 +340,11 @@ preventDefault는 이벤트의 기본 기능을 수행하지 말라는 것이다
 ```javascript
 const box = document.querySelector("#box");
 
-box.addEventListener("mouseenter", ()=>{
+box.addEventListener("mouseenter", () => {
     box.style.backgroundColor = "hotpink";
 });
 
-box.addEventListener("mouseleave", ()=>{
+box.addEventListener("mouseleave", () => {
     box.style.backgroundColor = "aqua";
 });
 ```
@@ -360,39 +358,41 @@ box.addEventListener("mouseleave", ()=>{
 ### 반복되는 요소에 이벤트 한꺼번에 연결하기
 
 ```html
+
 <body>
-    <ul class="list">
-        <li><a href=""#>item1</a></li>
-        <li><a href=""#>item2</a></li>
-        <li><a href=""#>item3</a></li>
-        <li><a href=""#>item4</a></li>
-    </ul>
+<ul class="list">
+    <li><a href="" #>item1</a></li>
+    <li><a href="" #>item2</a></li>
+    <li><a href="" #>item3</a></li>
+    <li><a href="" #>item4</a></li>
+</ul>
 </body>
 ```
 
 ```javascript
 const list = document.querySelectorAll(".list li");
 
-for (let el of list){
-    el.addEventListener("click", e=>{
-    e.preventDefault();
-    console.log(e.currentTarget.innerText);
-})
+for (let el of list) {
+    el.addEventListener("click", e => {
+        e.preventDefault();
+        console.log(e.currentTarget.innerText);
+    })
 }
 ```
 
-querySelectorAll로 <li> 태그를 리스트로 묶어 list라는 변수에 담자. for of 문을 사용하여 변수 el에 저장되고 있는 반복 요소를 클릭할 때마다 해당요소를 e.currentTarget으로 선택하고 .innerText 구문을 연결해준다.
+querySelectorAll로 <li> 태그를 리스트로 묶어 list라는 변수에 담자. for of 문을 사용하여 변수 el에 저장되고 있는 반복 요소를 클릭할 때마다 해당요소를 e.currentTarget으로
+선택하고 .innerText 구문을 연결해준다.
 innerText 구문은 선택한 요소의 텍스트를 불러온다. 이제 각 item을 클릭하면 console에 각각 item1, item2, item3, item4가 출력된다.
 
 ![0](/assets/images/javascript%20basic/click_for_of.png)
 
-
 ### 클릭 이벤트가 발생할 때 숫자를 증가, 감소시키기
 
 ```html
+
 <body>
-    <a href="#" class="btnPlus">plus</a>
-    <a href="#" class="btnMinus">minus</a>
+<a href="#" class="btnPlus">plus</a>
+<a href="#" class="btnMinus">minus</a>
 </body>
 ```
 
@@ -402,7 +402,7 @@ const btnMinus = document.querySelector(".btnMinus");
 let num = 0; // 제어할 숫잣값을 0으로 초기화
 
 //btnPlust를 클릭할 때마다
-btnPlus.addEventListener("click", e=>{
+btnPlus.addEventListener("click", e => {
     e.preventDefault();
     //num값을 1씩 증가
     num++;
@@ -410,7 +410,7 @@ btnPlus.addEventListener("click", e=>{
 })
 
 //btnMinus를 클릭할 때마다
-btnMinus.addEventListener("click", e=>{
+btnMinus.addEventListener("click", e => {
     e.preventDefault();
     //num값을 1씩 감소
     num--;
@@ -423,9 +423,7 @@ btnPlus에 클릭 이벤트가 생기면 num++ 해준다. 마찬가지로 btnMin
 
 ![0](/assets/images/javascript%20basic/plus_minus.png)
 
-
 ### 문자 안에 변수 삽입하기
-
 
 ```javascript
 const myName = "홍길동";
@@ -436,15 +434,17 @@ console.log(`내 이름은 ${myName}입니다.`);
 
 그리고 문자 안에서 ${변수}로 사용해주면 변수값을 사용할 수 있다.
 
-### 클릭하면 좌우로 회정하는 박스 만들기
+### 클릭하면 좌우로 회전하는 박스 만들기
 
 ```html
+
 <body>
-    <a href="#" class="btnLeft">왼쪽으로 회전</a>
-    <a href="#" class="btnRight">오른쪽으로 회전</a>
-    <div id="box"></div>
+<a href="#" class="btnLeft">왼쪽으로 회전</a>
+<a href="#" class="btnRight">오른쪽으로 회전</a>
+<div id="box"></div>
 </body>
 ```
+
 ```css
 #box {
     width: 300px;
@@ -464,16 +464,16 @@ const box = document.querySelector("#box");
 const deg = 45;
 let num = 0;
 
-btnLeft.addEventListener("click", e=>{
+btnLeft.addEventListener("click", e => {
     e.preventDefault();
     num--;
-    box.style.transform=`rotate(${num*deg}deg)`;
+    box.style.transform = `rotate(${num * deg}deg)`;
 });
 
-btnRight.addEventListener("click", e=>{
+btnRight.addEventListener("click", e => {
     e.preventDefault();
     num++;
-    box.style.transform=`rotate(${num*deg}deg)`;
+    box.style.transform = `rotate(${num * deg}deg)`;
 });
 ```
 
@@ -488,19 +488,19 @@ btnLeft를 클릭할때마다 각도는 0, 45, 90, 135, ... 처럼 45도씩 증�
 
 클릭할때마다 45도만큼 회전한다.
 
-
 ## 자바스크립트로 클래스 제어하기
-
 
 자바스크립트로 HTML 스타일을 변경하는건 추천되지 않는다. CSS 파일이 우선순위에서 무시되기 때문이다. 그러니 CSS에서 스타일을 설정해주고, 자바스크립트는 클래스 이름만 추가/제거하도록 해보자.
 
 ```html
+
 <body>
-    <section id="wrap">
-        <article></article>
-    </section>
+<section id="wrap">
+    <article></article>
+</section>
 </body>
 ```
+
 ```css
 #wrap {
     width: 500px;
@@ -510,6 +510,7 @@ btnLeft를 클릭할때마다 각도는 0, 45, 90, 135, ... 처럼 45도씩 증�
     box-sizing: border-box;
     margin: 100px auto;
 }
+
 #wrap article {
     width: 100%;
     height: 100%;
@@ -517,6 +518,7 @@ btnLeft를 클릭할때마다 각도는 0, 45, 90, 135, ... 처럼 45도씩 증�
     transition: 1s;
 }
 ```
+
 ![0](/assets/images/javascript%20basic/control_class_body.png)
 
 일단 body부터 살펴보자. 왠지모르게 가장 위부터가 아니지만, 이는 section에게 margin(바깥여백)을 준만큼 띄워졌기 때문이다. section 태그를 살펴보자.
@@ -535,30 +537,77 @@ btnLeft를 클릭할때마다 각도는 0, 45, 90, 135, ... 처럼 45도씩 증�
 const wrap = document.querySelector("#wrap");
 const box = wrap.querySelector("article");
 
-wrap.addEventListener("click", ()=>{
+wrap.addEventListener("click", () => {
     box.style.backgroundColor = "hotpink";
 });
 ```
+
 wrap을 변수에 저장하고, 다시 wrap을 이용해 querySelector를 사용해 article 자식을 선택한다.
 wrap을 클릭하면 article의 background-color를 hotpink로 바꾼다.
 
-
 ![0](/assets/images/javascript%20basic/control_class_hotpink.png)
 
-
 클릭하면 색깔이 1초동안 hotpink로 바뀐다. article 태그의 style 속성에 "background-color:hotpink"가 추가되었다.
+그런데 이렇게 태그에 인라인 형태로 삽입된 스타일 구문은 우선순위가 매우 높아서 기존 CSS를 무시하게 된다. 그러니 클래스명을 추가해서 제어해보자.
+
+```css
+#wrap.on article {
+    background: hotpink;
+}
+```
+
+```javascript
+wrap.addEventListener("click", () => {
+    wrap.classList.add("on");
+});
+```
+
+클릭하면 ```on``` 클래스를 추가하고, 클래스에 ```on```이 추가되면 article의 배경색이 hotpink로 바뀌도록 합니다.
+
+![0](/assets/images/javascript%20basic/control_class_addon.png)
+
+클릭하면 #wrap 요소에 "on"이라는 요소가 추가됐다. 스타일을 강제로 바꾸지 않으면서 부모 요소에 "on"만 추가되어 변경되도록 했다.
+다시 클릭했을때 색이 돌아오도록 하려면 클릭상태를 저장했다가 "on"을 제거하면 된다.
+
+```javascript
+wrap.addEventListener("click", () => {
+    let isOn = wrap.classList.contains("on");
+    console.log(isOn);
+
+    if (isOn) {
+        wrap.classList.remove("on");
+    } else {
+        wrap.classList.add("on");
+    }
+});
+```
+
+또는 삼항연산자를 이용해서 다음과 같이 쓸 수 있다.
+
+```javascript
+(isOn) ? wrap.classList.remove("on") : wrap.classList.add("on");
+```
+
+![0](/assets/images/javascript%20basic/control_class_removeon.png)
+
+클릭했다가 다시 클릭하면 inOn은 False로 바뀌며 aqua로 돌아온다.
 
 
+**이처럼, HTML이 이미 출력되었다 하더라도 이벤트가 발생할때마다 언제든지 그 요소를 동적으로 변경할 수 있다!**
 
+위 기능은 ```classList.toggle()``` 기능을 쓰면 효율적으로 구현할 수 있다.
 
+```javascript
+wrap.addEventListener("click", () => {
+    wrap.classList.toggle("on")
+})
+```
 
+선택한 요소에 클래스가 있으면 제거해주고 없으면 추가해주라는 의미이다.
 
+---
 
-
-
-
-
-
+함수를 활용하여 코드 패키징하기와 속성값 활용하기는 다음에 정리.
 
 
 
