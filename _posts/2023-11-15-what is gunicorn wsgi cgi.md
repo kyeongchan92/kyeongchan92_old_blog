@@ -51,25 +51,35 @@ application = get_wsgi_application()
 
 ## Worker와 Thread 수 설정
 
-**Worker**  Worker는 독립적인 프로세스로, 클라이언트의 요청을 동시에 처리하는 역할을 합니다.
+**Worker**
+
+Worker는 독립적인 프로세스로, 클라이언트의 요청을 동시에 처리하는 역할을 합니다.
 Gunicorn은 여러 개의 worker 프로세스를 생성하여 동시에 여러 요청을 처리할 수 있게 합니다.
 **각 worker는 고유한 메모리 공간을 가지고 있어**, 하나의 worker가 오류로 인해 종료되더라도 다른 worker는 계속해서 서비스를 제공할 수 있습니다.
 Worker의 수를 늘리면 동시에 처리할 수 있는 요청의 수가 늘어나지만, 이에 따라 메모리 사용량이 늘어나게 됩니다.
 
-**Worker 수 설정** --workers 또는 -w 옵션을 사용하여 Gunicorn이 생성할 worker 프로세스의 수를 지정할 수 있습니다. 예를 들어, -w 4는 4개의 worker를 생성하도록 지시합니다.
+**Worker 수 설정**
+
+--workers 또는 -w 옵션을 사용하여 Gunicorn이 생성할 worker 프로세스의 수를 지정할 수 있습니다. 예를 들어, -w 4는 4개의 worker를 생성하도록 지시합니다.
 worker의 수는 일반적으로 코어 1개당 2-4개를 곱해 사용하면 된다.
 
 
-**Thread**  Thread는 프로세스 내에서 동작하는 가장 작은 실행 단위입니다. thread는 자원을 공유합니다.
+**Thread** 
+
+Thread는 프로세스 내에서 동작하는 가장 작은 실행 단위입니다. thread는 자원을 공유합니다.
 Python GIL(Global Interpreter Lock) 때문에 기본적으로 Python은 하나의 스레드에서만 코드를 실행할 수 있습니다. 이는 멀티코어 환경에서 병렬 처리가 어렵게 만들 수 있습니다.
 그러나 I/O 바운드 작업에서는 여러 스레드를 사용하여 동시에 여러 작업을 처리할 수 있습니다.
 Gunicorn에서 worker와 thread의 설정은 다음과 같습니다:
 
-**Thread 수 설정** Gunicorn은 worker 내에서 스레드를 사용할 수 있습니다. --threads 또는 -t 옵션을 사용하여 각 worker가 생성하는 스레드의 수를 지정할 수 있습니다. 예를 들어, -t 2는 각 worker가 2개의 스레드를 사용하도록 지시합니다.
+**Thread 수 설정**
+
+Gunicorn은 worker 내에서 스레드를 사용할 수 있습니다. --threads 또는 -t 옵션을 사용하여 각 worker가 생성하는 스레드의 수를 지정할 수 있습니다. 예를 들어, -t 2는 각 worker가 2개의 스레드를 사용하도록 지시합니다.
 
 이외 다른 매개변수들
 
-`-k STRING` 또는 `--worker-class STRING`, default STRING `'sync'` :Gunicorn의 워커(worker) 클래스를 지정.
+`-k STRING` 또는 `--worker-class STRING`, default STRING `'sync'`
+
+Gunicorn의 워커(worker) 클래스를 지정.
 
 1. sync :
    1. 기본값으로 사용되며, 각 요청을 동기적으로 처리합니다.
@@ -88,7 +98,7 @@ Gunicorn에서 worker와 thread의 설정은 다음과 같습니다:
    2. Python 2에서 사용되며, futures 패키지를 통해 멀티스레딩을 지원합니다. (Python 3에서는 asyncio를 사용)
 
 
-`-t INT` 또는 `--timeout INT`:Gunicorn 웹 서버의 작업자(worker)가 얼마 동안 응답을 하지 않으면 종료되고 다시 시작되어야 하는지를 설정
+`-t INT` 또는 `--timeout INT` : Gunicorn 웹 서버의 작업자(worker)가 얼마 동안 응답을 하지 않으면 종료되고 다시 시작되어야 하는지를 설정.
 기본값은 30초입니다.
 이 옵션은 작업자(worker) 프로세스가 몇 초 동안 응답하지 않으면 재시작되어야 하는지를 나타냅니다.
 0으로 설정하면 작업자 프로세스가 응답하지 않는 것을 무한정으로 허용하게 됩니다. 이는 모든 작업자에 대해 제한 시간을 비활성화하는 효과가 있습니다.
